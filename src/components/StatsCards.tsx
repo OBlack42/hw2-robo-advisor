@@ -23,30 +23,30 @@ export default function StatsCards({ data }: Props) {
 
   const cards = [
     {
-      label: "Current mNAV",
+      label: "目前 mNAV",
       value: `${latest.mNAV.toFixed(3)}x`,
       sub: mnavChange >= 0 ? `+${mnavChange.toFixed(1)}%` : `${mnavChange.toFixed(1)}%`,
       color: mnavChange >= 0 ? "text-green-400" : "text-red-400",
       border: "border-amber-500/30",
     },
     {
-      label: "BTC Price",
+      label: "BTC 價格",
       value: formatUSD(latest.btcPrice),
       sub: btcChange >= 0 ? `+${btcChange.toFixed(1)}%` : `${btcChange.toFixed(1)}%`,
       color: btcChange >= 0 ? "text-green-400" : "text-red-400",
       border: "border-orange-500/30",
     },
     {
-      label: "MSTR Price",
+      label: "MSTR 股價",
       value: `$${latest.mstrPrice.toFixed(2)}`,
-      sub: `Market Cap: ${formatUSD(latest.marketCap)}`,
+      sub: `市值：${formatUSD(latest.marketCap)}`,
       color: "text-zinc-400",
       border: "border-indigo-500/30",
     },
     {
-      label: "BTC Holdings",
+      label: "BTC 持有量",
       value: latest.btcHoldings.toLocaleString(),
-      sub: `NAV: ${formatUSD(latest.nav)}`,
+      sub: `淨資產價值：${formatUSD(latest.nav)}`,
       color: "text-zinc-400",
       border: "border-zinc-500/30",
     },

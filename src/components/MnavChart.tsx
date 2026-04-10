@@ -31,17 +31,17 @@ function formatUSD(value: number) {
 }
 
 export default function MnavChart({ data }: Props) {
-  if (data.length === 0) return <p className="text-zinc-400">No data available.</p>;
+  if (data.length === 0) return <p className="text-zinc-400">無可用資料。</p>;
 
   return (
     <div className="space-y-8">
-      {/* mNAV Chart */}
+      {/* mNAV 圖表 */}
       <div>
         <h2 className="text-xl font-semibold mb-4 text-white">
-          Strategy (MSTR) mNAV Ratio
+          Strategy (MSTR) mNAV 比率
         </h2>
         <p className="text-sm text-zinc-400 mb-4">
-          mNAV = Market Cap / (BTC Holdings x BTC Price). A value above 1.0 means the market values MSTR at a premium to its Bitcoin holdings.
+          mNAV = 市值 / (BTC 持有量 x BTC 價格)。數值大於 1.0 代表市場對 MSTR 的估值高於其比特幣持倉價值（溢價）。
         </p>
         <div className="h-[400px]">
           <ResponsiveContainer width="100%" height="100%">
@@ -71,7 +71,7 @@ export default function MnavChart({ data }: Props) {
                 }}
               />
               <Legend />
-              <ReferenceLine yAxisId="mnav" y={1} stroke="#666" strokeDasharray="5 5" label={{ value: "1.0x (Fair Value)", fill: "#666", fontSize: 11 }} />
+              <ReferenceLine yAxisId="mnav" y={1} stroke="#666" strokeDasharray="5 5" label={{ value: "1.0x (公允價值)", fill: "#666", fontSize: 11 }} />
               <Line
                 yAxisId="mnav"
                 type="monotone"
@@ -86,10 +86,10 @@ export default function MnavChart({ data }: Props) {
         </div>
       </div>
 
-      {/* BTC Price + MSTR Price Chart */}
+      {/* BTC 價格 vs MSTR 股價 */}
       <div>
         <h2 className="text-xl font-semibold mb-4 text-white">
-          BTC Price vs MSTR Stock Price
+          BTC 價格 vs MSTR 股價
         </h2>
         <div className="h-[400px]">
           <ResponsiveContainer width="100%" height="100%">
@@ -129,7 +129,7 @@ export default function MnavChart({ data }: Props) {
                 stroke="#f7931a"
                 strokeWidth={2}
                 dot={false}
-                name="BTC Price"
+                name="BTC 價格"
               />
               <Line
                 yAxisId="mstr"
@@ -138,17 +138,17 @@ export default function MnavChart({ data }: Props) {
                 stroke="#6366f1"
                 strokeWidth={2}
                 dot={false}
-                name="MSTR Price"
+                name="MSTR 股價"
               />
             </ComposedChart>
           </ResponsiveContainer>
         </div>
       </div>
 
-      {/* Market Cap vs NAV */}
+      {/* 市值 vs 淨資產價值 */}
       <div>
         <h2 className="text-xl font-semibold mb-4 text-white">
-          Market Cap vs BTC NAV
+          市值 vs BTC 淨資產價值
         </h2>
         <div className="h-[400px]">
           <ResponsiveContainer width="100%" height="100%">
@@ -173,8 +173,8 @@ export default function MnavChart({ data }: Props) {
                 formatter={(value: any, name: any) => [formatUSD(Number(value)), name]}
               />
               <Legend />
-              <Bar dataKey="marketCap" fill="#6366f1" opacity={0.6} name="Market Cap" />
-              <Bar dataKey="nav" fill="#f7931a" opacity={0.6} name="BTC NAV" />
+              <Bar dataKey="marketCap" fill="#6366f1" opacity={0.6} name="市值" />
+              <Bar dataKey="nav" fill="#f7931a" opacity={0.6} name="BTC 淨資產價值" />
             </ComposedChart>
           </ResponsiveContainer>
         </div>

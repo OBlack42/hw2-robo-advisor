@@ -28,7 +28,7 @@ export default function AISummary({ data }: Props) {
         setSummary(result.summary);
       }
     } catch {
-      setError("Failed to generate summary. Please try again.");
+      setError("摘要生成失敗，請稍後再試。");
     } finally {
       setLoading(false);
     }
@@ -38,14 +38,14 @@ export default function AISummary({ data }: Props) {
     <div className="bg-zinc-900 border border-zinc-700 rounded-xl p-6">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-xl font-semibold text-white flex items-center gap-2">
-          <span className="text-2xl">&#x1F916;</span> AI-Generated Analysis
+          <span className="text-2xl">&#x1F916;</span> AI 智慧分析
         </h2>
         <button
           onClick={generateSummary}
           disabled={loading || data.length === 0}
           className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 disabled:bg-zinc-700 disabled:text-zinc-500 text-white text-sm font-medium rounded-lg transition-colors"
         >
-          {loading ? "Analyzing..." : summary ? "Regenerate" : "Generate Analysis"}
+          {loading ? "分析中..." : summary ? "重新生成" : "產生分析"}
         </button>
       </div>
 
@@ -67,7 +67,7 @@ export default function AISummary({ data }: Props) {
 
       {!summary && !error && !loading && (
         <p className="text-zinc-500 text-sm">
-          Click &quot;Generate Analysis&quot; to get AI-powered insights on the mNAV trend and market conditions.
+          點擊「產生分析」按鈕，讓 AI 根據 mNAV 趨勢與市場狀況提供智慧洞察。
         </p>
       )}
     </div>

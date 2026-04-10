@@ -29,13 +29,13 @@ Data Summary:
 Recent 5 data points:
 ${data.slice(-5).map((d) => `  ${d.date}: mNAV=${d.mNAV}x, BTC=$${d.btcPrice}, MSTR=$${d.mstrPrice}`).join("\n")}
 
-Please provide:
-1. A brief trend analysis of the mNAV indicator
-2. What the current mNAV level suggests about market sentiment
-3. The relationship between BTC price movements and mNAV changes
-4. A short investment insight
+請提供以下分析（以繁體中文回覆）：
+1. mNAV 指標的趨勢分析
+2. 目前 mNAV 水準反映的市場情緒
+3. BTC 價格變動與 mNAV 變化之間的關係
+4. 簡短的投資建議
 
-Keep it concise (under 200 words). Use plain language.`;
+請簡潔扼要（200 字以內），使用易懂的語言。`;
 
   try {
     const res = await fetch(
