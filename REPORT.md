@@ -1,67 +1,76 @@
-# HW2: Robo-Advisor — Report
+# HW2: Robo-Advisor — 報告
 
-## 1. Selected Indicator
+| | |
+|---|---|
+| **姓名** | 廖葦達（廖家葦） |
+| **學號** | 61370029H |
+| **科系** | 工業教育學系碩士班 |
+| **課程** | CSIE5315 比特幣及數據分析（2026 Spring） |
 
-### What indicator did I choose?
+---
 
-**mNAV (Modified Net Asset Value)** of Strategy (formerly MicroStrategy, ticker: MSTR).
+## 1. 選擇的指標
 
-mNAV is defined as:
+### 選了什麼指標？
 
-$$\text{mNAV} = \frac{\text{MSTR Market Cap}}{\text{BTC Holdings} \times \text{BTC Price}}$$
+**mNAV（修正淨資產價值比）**，追蹤對象為 Strategy（前身 MicroStrategy，股票代號：MSTR）。
 
-### Why did I choose it?
+mNAV 定義如下：
 
-Strategy is the largest and most prominent **Digital Asset Treasury (DAT.co) company** — a public company that holds Bitcoin as its primary treasury reserve asset. As of April 2026, Strategy holds over 580,000 BTC, making it the single largest corporate Bitcoin holder globally.
+$$\text{mNAV} = \frac{\text{MSTR 市值}}{\text{BTC 持有量} \times \text{BTC 價格}}$$
 
-The mNAV ratio is the most widely tracked indicator for DAT.co companies because it captures a fundamental question: **how much premium (or discount) does the market assign to a company simply for holding Bitcoin on its balance sheet?**
+### 為什麼選擇這個指標？
 
-- **mNAV > 1.0**: The market values the company at more than its Bitcoin holdings — implying investors see added value in the company's strategy, leverage, or stock-market accessibility.
-- **mNAV < 1.0**: The company trades at a discount to its Bitcoin holdings — suggesting skepticism about management, dilution risk, or market sentiment.
+Strategy 是目前全球最大、最具代表性的 **數位資產儲備公司（DAT.co）**——一家以比特幣作為主要儲備資產的上市公司。截至 2026 年 4 月，Strategy 持有超過 580,000 顆 BTC，是全球最大的企業比特幣持有者。
 
-This indicator is particularly interesting because it reflects both crypto market sentiment AND traditional equity market dynamics.
+mNAV 是追蹤 DAT.co 公司最廣泛使用的指標，因為它回答了一個核心問題：**市場對一家僅僅因為持有比特幣的公司，願意賦予多少溢價（或折價）？**
 
-## 2. Relationship with Bitcoin (BTC)
+- **mNAV > 1.0**：市場對該公司的估值高於其比特幣持倉——意味著投資人認為公司的策略、槓桿操作或股票市場的可及性具有額外價值。
+- **mNAV < 1.0**：公司以低於其比特幣持倉的價格交易——反映對管理層、稀釋風險或市場情緒的疑慮。
 
-### How is mNAV related to BTC?
+這個指標特別有趣，因為它同時反映了加密貨幣市場情緒和傳統股票市場的動態。
 
-The mNAV ratio has a **complex, non-linear relationship** with Bitcoin price:
+## 2. 與比特幣（BTC）的關係
 
-1. **BTC price is the denominator**: When BTC rises, the NAV (denominator) increases. If the stock price doesn't keep up proportionally, mNAV decreases. Conversely, when BTC falls, mNAV can spike if the stock holds relatively steady.
+### mNAV 如何與 BTC 相關？
 
-2. **Leverage amplification**: Strategy uses debt and equity issuance to acquire more Bitcoin. This creates a leveraged exposure — MSTR stock tends to move more aggressively than BTC in both directions. During bull markets, mNAV often expands as investor enthusiasm drives the stock to higher premiums. During bear markets, mNAV compresses.
+mNAV 比率與比特幣價格之間存在**複雜的非線性關係**：
 
-3. **Market sentiment proxy**: A rising mNAV during a BTC rally indicates strong "risk-on" sentiment — investors are not just buying Bitcoin, they're paying a premium for leveraged Bitcoin exposure. A falling mNAV during a BTC rally is a warning sign of cooling enthusiasm.
+1. **BTC 價格是分母**：當 BTC 上漲時，NAV（分母）增加。若股價未等比例跟上，mNAV 會下降。反之，當 BTC 下跌，若股價相對穩定，mNAV 反而可能上升。
 
-4. **Investment signal**: Historically, extreme mNAV values have been contrarian indicators:
-   - Very high mNAV (>3.0x) often precedes corrections
-   - Very low mNAV (<1.0x) has historically been a buying opportunity
+2. **槓桿放大效應**：Strategy 透過發債和增發股票來購買更多比特幣，形成槓桿曝險——MSTR 股價在上漲和下跌時的波動幅度通常大於 BTC。在牛市中，投資人的熱情推動股價至更高溢價，mNAV 擴張；熊市中則壓縮。
 
-### Key Insight
+3. **市場情緒的代理指標**：BTC 上漲時 mNAV 同步上升，代表市場處於強烈的「風險偏好」狀態——投資人不只在買比特幣，還願意支付溢價購買槓桿化的比特幣曝險。若 BTC 上漲但 mNAV 下降，則是市場熱情降溫的警訊。
 
-The mNAV acts as a **sentiment amplifier** for Bitcoin. It captures not just where BTC price is, but how the broader market *feels* about Bitcoin's future — filtered through the lens of institutional equity investors rather than crypto-native traders.
+4. **投資訊號**：歷史上，極端的 mNAV 值往往是反向指標：
+   - 極高的 mNAV（>3.0x）常常預示著修正
+   - 極低的 mNAV（<1.0x）歷史上是買入機會
 
-## 3. Deployed Website URL
+### 核心洞察
+
+mNAV 扮演了比特幣的**情緒放大器**角色。它不僅反映 BTC 當前的價格，更捕捉了市場對比特幣未來的*感受*——透過機構股票投資人的視角，而非加密貨幣原生交易者的角度。
+
+## 3. 部署網站網址
 
 **https://hw2-robo-advisor-flax.vercel.app**
 
-## 4. Technical Implementation
+## 4. 技術實作
 
-- **Frontend**: Next.js 16 + TypeScript + Tailwind CSS + Recharts
-- **Data Sources**:
-  - BTC price: CoinGecko API (free, daily granularity)
-  - MSTR stock price: Yahoo Finance API (daily OHLCV)
-  - BTC holdings: Strategy's public quarterly reports (interpolated)
-- **AI Summary (Bonus)**: Google Gemini API (gemini-2.0-flash) generates trend analysis on demand
-- **Deployment**: Vercel
+- **前端框架**：Next.js 16 + TypeScript + Tailwind CSS + Recharts
+- **資料來源**：
+  - BTC 價格：CoinGecko API（免費，每日頻率）
+  - MSTR 股價：Yahoo Finance API（每日 OHLCV）
+  - BTC 持有量：Strategy 公開季報資料（內插補值）
+- **AI 摘要（加分）**：Google Gemini API（gemini-2.5-flash）根據資料即時產生趨勢分析
+- **部署平台**：Vercel
 
-### Features
+### 功能特色
 
-- Interactive time range selector (90D / 180D / 1Y)
-- Three visualization panels:
-  1. mNAV ratio over time with fair value reference line
-  2. BTC price vs MSTR stock price (dual Y-axis)
-  3. Market Cap vs BTC NAV bar chart
-- Summary statistics cards (current mNAV, BTC price, MSTR price, BTC holdings)
-- AI-generated market analysis (bonus feature)
-- Methodology explanation section
+- 互動式時間區間選擇器（90 天 / 半年 / 1 年）
+- 三個視覺化面板：
+  1. mNAV 比率時序圖（含公允價值參考線）
+  2. BTC 價格 vs MSTR 股價（雙 Y 軸）
+  3. 市值 vs BTC 淨資產價值長條圖
+- 即時統計數據卡片（目前 mNAV、BTC 價格、MSTR 股價、BTC 持有量）
+- AI 智慧分析（加分功能）
+- 指標說明區塊
