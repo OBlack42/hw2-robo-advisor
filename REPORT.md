@@ -52,7 +52,7 @@ The mNAV acts as a **sentiment amplifier** for Bitcoin. It captures not just whe
   - BTC price: CoinGecko API (free, daily granularity)
   - MSTR stock price: Yahoo Finance API (daily OHLCV)
   - BTC holdings: Strategy's public quarterly reports (interpolated)
-- **AI Summary (Bonus)**: Claude API (Haiku model) generates trend analysis on demand
+- **AI Summary (Bonus)**: Google Gemini API (gemini-2.0-flash) generates trend analysis on demand
 - **Deployment**: Vercel
 
 ### Features

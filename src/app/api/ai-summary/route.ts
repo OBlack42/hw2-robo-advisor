@@ -1,9 +1,9 @@
 import { DataPoint } from "@/lib/data";
 
 export async function POST(request: Request) {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    return Response.json({ error: "ANTHROPIC_API_KEY not configured" }, { status: 500 });
+    return Response.json({ error: "GEMINI_API_KEY not configured" }, { status: 500 });
   }
 
   const { data } = (await request.json()) as { data: DataPoint[] };
@@ -11,7 +11,6 @@ export async function POST(request: Request) {
     return Response.json({ error: "No data provided" }, { status: 400 });
   }
 
-  // Summarize the data for the prompt
   const latest = data[data.length - 1];
   const oldest = data[0];
   const maxMNAV = data.reduce((max, d) => (d.mNAV > max.mNAV ? d : max), data[0]);
@@ -39,27 +38,24 @@ Please provide:
 Keep it concise (under 200 words). Use plain language.`;
 
   try {
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
-      },
-      body: JSON.stringify({
-        model: "claude-haiku-4-5-20251001",
-        max_tokens: 512,
-        messages: [{ role: "user", content: prompt }],
-      }),
-    });
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+        }),
+      }
+    );
 
     if (!res.ok) {
       const errBody = await res.text();
-      return Response.json({ error: `Claude API error: ${errBody}` }, { status: 500 });
+      return Response.json({ error: `Gemini API error: ${errBody}` }, { status: 500 });
     }
 
     const result = await res.json();
-    const summary = result.content[0].text;
+    const summary = result.candidates[0].content.parts[0].text;
     return Response.json({ summary });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : "Unknown error";
